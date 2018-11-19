@@ -5,10 +5,13 @@
  */
 package webservices;
 
+import Entities.Tipo;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import Modelo.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -62,5 +65,41 @@ public class PideloAppWS {
         }
         
     }
+
+    /**
+     * Web service operation
+     * @return 
+     */
+    @WebMethod(operationName = "getKindofRestaurant")
+    public ArrayList<String> getKindofRestaurant() {
+        //TODO write your implementation code here:
+
+        return methods.fillKindofRestaurant();
+    }
+    
+    /**
+     * Web service operation
+     * @return 
+     */
+    @WebMethod(operationName = "getProducts")
+    public ArrayList<String> getProducts() {
+        //TODO write your implementation code here:
+
+        return methods.fillProducts();
+    }
+    
+    
+    /**
+     * Web service operation
+     * @return 
+     */
+    /*Obsolet*/
+//    @WebMethod(operationName = "getKidofRestaurant")
+//    public ArrayList<ArrayList> getKidofRestaurant() {
+//        //TODO write your implementation code here:
+//        
+//        return methods.fillKindofRestaurant();
+//    }
+    
     
 }
