@@ -151,4 +151,34 @@ public class Methods {
 
         return lista;
     }
+        public String addRestaurant(String NombreEmp, Integer TipoRest,String NombreRep ,String Correo, String Tel,String horaApertura,String horaCierre,Integer Department,Integer usser,String Direccion,String NITDUI){//faltan Campos
+        String msg="";
+        
+        String query="Call addRestaurant(?,?,?,?,?,?,?,?,?,?,?,?,?);";
+        connDB= ConnectionDB.ConnectionDB();
+        try{
+            call=connDB.prepareCall(query);
+            call.setString(1, NombreEmp);
+            call.setInt(2, TipoRest);
+            call.setString(3, NombreRep);
+            call.setString(4, Correo);
+            call.setString(5,Tel);
+            call.setString(6,horaApertura);
+            call.setString(7,horaCierre);
+            call.setInt(8, Department);
+            call.setInt(9, usser);
+            call.setString(10, Direccion);
+            call.setString(11, NITDUI);
+            call.registerOutParameter(12, java.sql.Types.VARCHAR);
+            call.execute();
+            
+            msg=call.getString(12);
+       
+        }catch(SQLException e){
+            
+        }finally{
+            ConnectionDB.close(result,call,connDB);
+        }
+        return msg;
+    }
 }

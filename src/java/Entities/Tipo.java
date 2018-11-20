@@ -124,5 +124,8 @@ public class Tipo implements Serializable {
     public void setEmpresaList(List<Empresa> empresaList) {
         this.empresaList = empresaList;
     }
-    
+    public Object[] toArray()
+    {
+        return new Object[] {this.getIdTipo()+"",this.getImg(),this.getTipo()};
+    }
 }
